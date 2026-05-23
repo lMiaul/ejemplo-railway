@@ -4,13 +4,13 @@ import os
 from google import genai
 
 # 1. Configuración de variables de entorno
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017/")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
 
 # 2. Conexión a MongoDB
 @st.cache_resource
 def init_connection():
-    client = pymongo.MongoClient(MONGO_URI)
+    client = pymongo.MongoClient(MONGO_URL)
     # Se crea/usa la base de datos 'demo_db' y la colección 'feedbacks'
     return client["demo_db"]["feedbacks"]
 
