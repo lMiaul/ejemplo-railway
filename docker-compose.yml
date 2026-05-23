@@ -5,7 +5,7 @@ services:
     ports:
       - "8501:8501"
     environment:
-      - MONGO_URI=mongodb://mongo:27017/
+      - MONGO_URL=${MONGO_URL:-mongodb://mongo:27017/}
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
     depends_on:
       - mongo
